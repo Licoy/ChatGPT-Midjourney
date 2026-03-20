@@ -26,6 +26,7 @@ One-click to own your own `ChatGPT` + `many AI` aggregation web service (based o
 
 ### Already supported
 - [x] All functions of the original `ChatGPT-Next-Web`
+- [x] MiniMax (MiniMax-M2.7 / MiniMax-M2.5 / MiniMax-M2.5-highspeed)
 - [x] StabilityAI
   - [x] Support for Stable Image Ultra
   - [x] Support for Stable Image Core
@@ -47,6 +48,8 @@ One-click to own your own `ChatGPT` + `many AI` aggregation web service (based o
 MJ Proxy API link address
 ### `MJ_PROXY_KEY`
 MJ Proxy API key
+### `MINIMAX_API_KEY`
+(Optional) MiniMax API key for using MiniMax models (MiniMax-M2.7, MiniMax-M2.5, etc.)
 ### `CODE`
 (Optional) Set the access password on the page
 ### `...Other parameters`

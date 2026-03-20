@@ -39,6 +39,10 @@ const DEFAULT_ALIBABA_URL = isApp
   ? DEFAULT_API_HOST + "/api/proxy/alibaba"
   : ApiPath.Alibaba;
 
+const DEFAULT_MINIMAX_URL = isApp
+  ? DEFAULT_API_HOST + "/api/proxy/minimax"
+  : ApiPath.MiniMax;
+
 const DEFAULT_STABILITY_URL = isApp
   ? DEFAULT_API_HOST + "/api/proxy/stability"
   : ApiPath.Stability;
@@ -83,6 +87,10 @@ const DEFAULT_ACCESS_STATE = {
   // alibaba
   alibabaUrl: DEFAULT_ALIBABA_URL,
   alibabaApiKey: "",
+
+  // minimax
+  minimaxUrl: DEFAULT_MINIMAX_URL,
+  minimaxApiKey: "",
 
   //stability
   stabilityUrl: DEFAULT_STABILITY_URL,
@@ -140,6 +148,10 @@ export const useAccessStore = createPersistStore(
       return ensure(get(), ["alibabaApiKey"]);
     },
 
+    isValidMiniMax() {
+      return ensure(get(), ["minimaxApiKey"]);
+    },
+
     isAuthorized() {
       this.fetch();
 
@@ -152,6 +164,7 @@ export const useAccessStore = createPersistStore(
         this.isValidBaidu() ||
         this.isValidByteDance() ||
         this.isValidAlibaba() ||
+        this.isValidMiniMax() ||
         !this.enabledAccessControl() ||
         (this.enabledAccessControl() && ensure(get(), ["accessCode"]))
       );

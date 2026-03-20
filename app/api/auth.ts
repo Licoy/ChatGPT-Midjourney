@@ -85,6 +85,9 @@ export function auth(req: NextRequest, modelProvider: ModelProvider) {
       case ModelProvider.Qwen:
         systemApiKey = serverConfig.alibabaApiKey;
         break;
+      case ModelProvider.MiniMax:
+        systemApiKey = serverConfig.minimaxApiKey;
+        break;
       case ModelProvider.GPT:
       default:
         if (req.nextUrl.pathname.includes("azure/deployments")) {
