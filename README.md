@@ -32,6 +32,7 @@
 
 ### 已支持
 - [x] 原`ChatGPT-Next-Web`所有功能
+- [x] MiniMax（MiniMax-M2.7 / MiniMax-M2.5 / MiniMax-M2.5-highspeed）
 - [x] StabilityAI
   - [x] 支持 Stable Image Ultra
   - [x] 支持 Stable Image Core
@@ -53,6 +54,8 @@
 MJ Proxy的API链接地址
 ### `MJ_PROXY_KEY`
 MJ Proxy的API密钥
+### `MINIMAX_API_KEY`
+（可选）MiniMax API密钥，用于使用MiniMax模型（如MiniMax-M2.7、MiniMax-M2.5）
 ### `CODE`
 （可选）设置页面中的访问密码
 ### `...其余参数`

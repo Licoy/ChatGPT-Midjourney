@@ -57,6 +57,10 @@ declare global {
       ALIBABA_URL?: string;
       ALIBABA_API_KEY?: string;
 
+      // minimax only
+      MINIMAX_URL?: string;
+      MINIMAX_API_KEY?: string;
+
       // custom template for preprocessing user input
       DEFAULT_INPUT_TEMPLATE?: string;
     }
@@ -121,6 +125,7 @@ export const getServerSideConfig = () => {
   const isBaidu = !!process.env.BAIDU_API_KEY;
   const isBytedance = !!process.env.BYTEDANCE_API_KEY;
   const isAlibaba = !!process.env.ALIBABA_API_KEY;
+  const isMiniMax = !!process.env.MINIMAX_API_KEY;
   // const apiKeyEnvVar = process.env.OPENAI_API_KEY ?? "";
   // const apiKeys = apiKeyEnvVar.split(",").map((v) => v.trim());
   // const randomIndex = Math.floor(Math.random() * apiKeys.length);
@@ -172,6 +177,10 @@ export const getServerSideConfig = () => {
     isAlibaba,
     alibabaUrl: process.env.ALIBABA_URL,
     alibabaApiKey: getApiKey(process.env.ALIBABA_API_KEY),
+
+    isMiniMax,
+    minimaxUrl: process.env.MINIMAX_URL,
+    minimaxApiKey: getApiKey(process.env.MINIMAX_API_KEY),
 
     cloudflareAccountId: process.env.CLOUDFLARE_ACCOUNT_ID,
     cloudflareKVNamespaceId: process.env.CLOUDFLARE_KV_NAMESPACE_ID,

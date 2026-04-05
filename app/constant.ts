@@ -23,6 +23,8 @@ export const BYTEDANCE_BASE_URL = "https://ark.cn-beijing.volces.com";
 
 export const ALIBABA_BASE_URL = "https://dashscope.aliyuncs.com/api/";
 
+export const MINIMAX_BASE_URL = "https://api.minimax.io";
+
 export const CACHE_URL_PREFIX = "/api/cache";
 export const UPLOAD_URL = `${CACHE_URL_PREFIX}/upload`;
 
@@ -50,6 +52,7 @@ export enum ApiPath {
   ByteDance = "/api/bytedance",
   Alibaba = "/api/alibaba",
   Stability = "/api/stability",
+  MiniMax = "/api/minimax",
   Artifacts = "/api/artifacts",
   Mj = "/api/mj",
 }
@@ -104,6 +107,7 @@ export enum ServiceProvider {
   Baidu = "Baidu",
   ByteDance = "ByteDance",
   Alibaba = "Alibaba",
+  MiniMax = "MiniMax",
   Stability = "Stability",
   Midjourney = "Midjourney",
 }
@@ -125,6 +129,7 @@ export enum ModelProvider {
   Ernie = "Ernie",
   Doubao = "Doubao",
   Qwen = "Qwen",
+  MiniMax = "MiniMax",
   Mj = "mj",
 }
 
@@ -198,6 +203,11 @@ export const ByteDance = {
 export const Alibaba = {
   ExampleEndpoint: ALIBABA_BASE_URL,
   ChatPath: "v1/services/aigc/text-generation/generation",
+};
+
+export const MiniMax = {
+  ExampleEndpoint: "https://api.minimax.io",
+  ChatPath: "v1/chat/completions",
 };
 
 export const DEFAULT_INPUT_TEMPLATE = `{{input}}`; // input / time / model / lang
@@ -296,6 +306,12 @@ const bytedanceModels = [
   "Doubao-pro-128k",
 ];
 
+const minimaxModels = [
+  "MiniMax-M2.7",
+  "MiniMax-M2.5",
+  "MiniMax-M2.5-highspeed",
+];
+
 const alibabaModes = [
   "qwen-turbo",
   "qwen-plus",
@@ -368,6 +384,15 @@ export const DEFAULT_MODELS = [
       id: "alibaba",
       providerName: "Alibaba",
       providerType: "alibaba",
+    },
+  })),
+  ...minimaxModels.map((name) => ({
+    name,
+    available: true,
+    provider: {
+      id: "minimax",
+      providerName: "MiniMax",
+      providerType: "minimax",
     },
   })),
 ] as const;

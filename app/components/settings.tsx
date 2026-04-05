@@ -56,6 +56,7 @@ import {
   Baidu,
   ByteDance,
   Alibaba,
+  MiniMax,
   Google,
   GoogleSafetySettingsThreshold,
   OPENAI_BASE_URL,
@@ -1043,6 +1044,45 @@ export function Settings() {
     </>
   );
 
+  const minimaxConfigComponent = accessStore.provider ===
+    ServiceProvider.MiniMax && (
+    <>
+      <ListItem
+        title={Locale.Settings.Access.MiniMax.Endpoint.Title}
+        subTitle={
+          Locale.Settings.Access.MiniMax.Endpoint.SubTitle +
+          MiniMax.ExampleEndpoint
+        }
+      >
+        <input
+          type="text"
+          value={accessStore.minimaxUrl}
+          placeholder={MiniMax.ExampleEndpoint}
+          onChange={(e) =>
+            accessStore.update(
+              (access) => (access.minimaxUrl = e.currentTarget.value),
+            )
+          }
+        ></input>
+      </ListItem>
+      <ListItem
+        title={Locale.Settings.Access.MiniMax.ApiKey.Title}
+        subTitle={Locale.Settings.Access.MiniMax.ApiKey.SubTitle}
+      >
+        <PasswordInput
+          value={accessStore.minimaxApiKey}
+          type="text"
+          placeholder={Locale.Settings.Access.MiniMax.ApiKey.Placeholder}
+          onChange={(e) => {
+            accessStore.update(
+              (access) => (access.minimaxApiKey = e.currentTarget.value),
+            );
+          }}
+        />
+      </ListItem>
+    </>
+  );
+
   const stabilityConfigComponent = accessStore.provider ===
     ServiceProvider.Stability && (
     <>
@@ -1404,6 +1444,7 @@ export function Settings() {
                   {baiduConfigComponent}
                   {byteDanceConfigComponent}
                   {alibabaConfigComponent}
+                  {minimaxConfigComponent}
                   {stabilityConfigComponent}
                   {mjpConfigComponent}
                 </>
