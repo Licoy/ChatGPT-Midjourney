@@ -73,7 +73,8 @@ docker run -d -p 3000:3000 \
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/1g6vDL?referralCode=vvEj-K)
 ### Sealos
 [![](https://raw.githubusercontent.com/labring-actions/templates/main/Deploy-on-Sealos.svg)](https://cloud.sealos.io/?openapp=system-template%3FtemplateName%3Dchatany)
-
+### ClawCloud Run
+[![Run on ClawCloud](https://raw.githubusercontent.com/ClawCloud/Run-Template/refs/heads/main/Run-on-ClawCloud.svg)](https://template.run.claw.cloud/?referralCode=1F0O70T0QYRD&openapp=system-fastdeploy%3FtemplateName%3Dchatany)
 ### Manual deployment
 - Clone this project to local
 - Install dependencies
